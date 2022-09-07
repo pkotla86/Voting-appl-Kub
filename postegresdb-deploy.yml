@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgresdb
+  labels:
+    type: db
+    author: prapulla
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: postgresdb
+  template:
+    metadata:
+      name: postgresdbPod
+      labels:
+        type: db
+    spec:
+      containers:
+        - name: postgresdb
+          image: postgres
+...

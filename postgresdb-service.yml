@@ -1,0 +1,17 @@
+---
+apiVersion: /apps/v1
+kind: Service
+metadata:
+  name: postgresdbservice
+  labels:
+    type: dbservice
+    author: prapulla
+spec:
+  type: ClusterIP
+  ports:
+    - targetPort: 5432
+      port: 5432
+  selector:
+    name: postgresdbapp
+    author: prapulla
+...

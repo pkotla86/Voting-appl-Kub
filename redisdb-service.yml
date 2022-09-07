@@ -1,0 +1,17 @@
+---
+apiVersion: /apps/v1
+kind: Service
+metadata:
+  name: redisdbservice
+  labels:
+    type: dbservice
+    author: prapulla
+spec:
+  type: ClusterIP
+  ports:
+    - targetPort: 6379
+      port: 6379
+  selector:
+    name: redisdbapp
+    author: prapulla
+...

@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redisdb
+  labels:
+    type: db
+    author: prapulla
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: redisdb
+  template:
+    metadata:
+      name: redisdbPod
+      labels:
+        type: db
+    spec:
+      containers:
+        - name: redisdb
+          image: redis
+...
